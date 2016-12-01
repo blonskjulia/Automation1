@@ -16,8 +16,9 @@ public class SeleniumDemo {
         go.sendKeys("automation");
         go.click();
         System.out.println(driver.getTitle());
+        WebDriverWait wait=new WebDriverWait(driver,5);
         List<WebElement> a = driver.findElements(By.xpath("//div[@class='b_title']/h2/a"));
-        for (WebElement el : a) {System.out.println(el.getText());
+        for (WebElement el:a) {System.out.println(el.getText());
         }
     driver.quit();
     }
