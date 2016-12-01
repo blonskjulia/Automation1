@@ -19,7 +19,7 @@ public class SeleniumDemo {
         WebElement go = driver.findElement(By.name("go"));
         go.sendKeys("automation");
         go.click();
-        System.out.println("Page title is: " + driver.getTitle());
+        System.out.println("Page title is: "+driver.getTitle());
         List<WebElement> headings = driver.findElements(By.className("b_title"));
         for (WebElement h: headings) {
             WebElement resultTitle = h.findElement(By.tagName("h2"));
