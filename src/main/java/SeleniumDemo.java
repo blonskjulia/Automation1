@@ -5,11 +5,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.swing.text.Element;
+import javax.xml.xpath.XPathException;
 import java.util.List;
 
 public class SeleniumDemo {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "D:/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:/АВТОМАТИЗАЦИЯ/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.bing.com/");
         WebDriverWait wait=new WebDriverWait(driver,5);
@@ -17,13 +20,14 @@ public class SeleniumDemo {
         go.sendKeys("automation");
         go.click();
         System.out.println(driver.getTitle());
-        List<WebElement> a = driver.findElements(By.xpath("//div[@class='b_title']/h2/a"));
-        for (WebElement el:a) {System.out.println(el.getText());
+        List<WebElement> headings = driver.findElements(By.className("b_title"));
+        for (WebElement h: headings) {
+            WebElement resultTitle = h.findElement(By.tagName("h2"));
+            System.out.println(resultTitle.getText());
         }
-    driver.quit();
-    }
-}
-
+        driver.quit();
+        }
+        }
 
 
 
